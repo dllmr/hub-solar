@@ -29,12 +29,10 @@ jobs:
         SHINEPHONE_PASSWORD: ${{ secrets.SHINEPHONE_PASSWORD }}
       run: |
         echo "GROWATT_USER_ID=$(python get_user_id.py)" >> $GITHUB_ENV
-#        echo "GROWATT_PLANT_IDS=$(python get_plant_ids.py)" >> $GITHUB_ENV
 
     - name: Store IDs to file
       run: |
         echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" >> .github/workflows/growatt.env
-#        echo "GROWATT_PLANT_IDS=${{ env.GROWATT_PLANT_IDS }}" >> .github/workflows/growatt.env
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .github/workflows/growatt.env

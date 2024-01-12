@@ -34,9 +34,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" >> .github/workflows/growatt.env
+        echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" >> action_helpers/growatt.env
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add .github/workflows/growatt.env
+        git add action_helpers/growatt.env
         git commit -m "Store Growatt IDs" -a || echo "No changes to commit"
         git push

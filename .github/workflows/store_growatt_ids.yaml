@@ -1,6 +1,6 @@
-name: Retrieve and store user and plant IDs for use with Growatt API
+name: store-growatt-ids
 
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   example_job:

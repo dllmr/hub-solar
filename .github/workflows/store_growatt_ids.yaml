@@ -3,7 +3,7 @@ name: store-growatt-ids
 on: [workflow_dispatch]
 
 jobs:
-  example_job:
+  store-growatt-ids:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
@@ -33,8 +33,6 @@ jobs:
     - name: Store IDs to file
       run: |
         echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" >> .github/workflows/growatt.env
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
         git add .github/workflows/growatt.env
         git commit -m "Store Growatt IDs" -a || echo "No changes to commit"
         git push

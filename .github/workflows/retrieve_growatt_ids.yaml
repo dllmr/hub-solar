@@ -1,0 +1,42 @@
+name: Retrieve and store user and plant IDs for use with Growatt API
+
+on: [push]
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        persist-credentials: true  # Allows push access for the commit
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      working-directory: action_helpers
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Extract credentials into environment variables
+      working-directory: action_helpers
+      env:
+        SHINEPHONE_USERNAME: ${{ secrets.SHINEPHONE_USERNAME }}
+        SHINEPHONE_PASSWORD: ${{ secrets.SHINEPHONE_PASSWORD }}
+      run: |
+        echo "GROWATT_USER_ID=$(python get_user_id.py)" >> $GITHUB_ENV
+#        echo "GROWATT_PLANT_IDS=$(python get_plant_ids.py)" >> $GITHUB_ENV
+
+    - name: Store IDs to file
+      run: |
+        echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" >> .github/workflows/growatt.env
+#        echo "GROWATT_PLANT_IDS=${{ env.GROWATT_PLANT_IDS }}" >> .github/workflows/growatt.env
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .github/workflows/growatt.env
+        git commit -m "Store Growatt IDs" -a || echo "No changes to commit"
+        git push

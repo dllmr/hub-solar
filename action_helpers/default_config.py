@@ -12,7 +12,7 @@ if login_response['success']:
     config = {
         'userId': login_response['userId'],
         'plantId': login_response['data'][0]['plantId'],
-        'plantName': login_response['data'][0]['plantName']
+        'plantName': login_response['data'][0]['plantName'].strip()
     }
 
     with open('../plant_data/config.json', 'w') as config_file:

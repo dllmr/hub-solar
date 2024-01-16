@@ -3,7 +3,7 @@ name: default_config
 on: [workflow_dispatch]
 
 jobs:
-  store-growatt-ids:
+  default_config:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository

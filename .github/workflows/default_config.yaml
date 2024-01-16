@@ -34,8 +34,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" > plant_data/growatt.env
-        echo "GROWATT_PLANT_ID=${{ env.GROWATT_PLANT_ID }}" >> plant_data/growatt.env
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add plant_data/

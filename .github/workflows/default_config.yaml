@@ -1,0 +1,43 @@
+name: default_config
+
+on: [workflow_dispatch]
+
+jobs:
+  store-growatt-ids:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        persist-credentials: true  # Allows push access for the commit
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      working-directory: action_helpers
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Generate file containing default config
+      working-directory: action_helpers
+      env:
+        SHINEPHONE_USERNAME: ${{ secrets.SHINEPHONE_USERNAME }}
+        SHINEPHONE_PASSWORD: ${{ secrets.SHINEPHONE_PASSWORD }}
+      run: |
+        python default_config.py
+
+    - name: Store IDs to file
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "GROWATT_USER_ID=${{ env.GROWATT_USER_ID }}" > plant_data/growatt.env
+        echo "GROWATT_PLANT_ID=${{ env.GROWATT_PLANT_ID }}" >> plant_data/growatt.env
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add plant_data/
+        git commit -m "Store default config" -a || echo "No changes to commit"
+        git push

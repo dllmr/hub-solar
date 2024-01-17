@@ -1,0 +1,7 @@
+name: get_current_data_cron
+
+on: [workflow_dispatch]
+
+jobs:
+  get_current_data_cron:
+    uses: ./.github/workflows/get_current_data_immediate.yaml@main

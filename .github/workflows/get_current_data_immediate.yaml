@@ -1,6 +1,6 @@
 name: get_current_data_immediate
 
-on: [workflow_dispatch]
+on: [workflow_dispatch, workflow_call]
 
 jobs:
   get_current_data_immediate:

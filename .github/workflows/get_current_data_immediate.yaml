@@ -1,6 +1,13 @@
 name: get_current_data_immediate
 
-on: [workflow_dispatch, workflow_call]
+on:
+  workflow_call:
+    secrets:
+      SHINEPHONE_USERNAME:
+        required: true
+      SHINEPHONE_PASSWORD:
+        required: true
+  workflow_dispatch:
 
 jobs:
   get_current_data_immediate:

@@ -36,6 +36,6 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add plant_data/
+        git add config/
         git commit -m "Store default config" -a || echo "No changes to commit"
         git push

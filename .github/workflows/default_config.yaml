@@ -30,7 +30,7 @@ jobs:
       run: |
         python default_config.py
 
-    - name: Store IDs to file
+    - name: Update repo
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |

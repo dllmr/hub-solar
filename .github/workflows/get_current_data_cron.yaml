@@ -5,3 +5,6 @@ on: [workflow_dispatch]
 jobs:
   get_current_data_cron:
     uses: ./.github/workflows/get_current_data_immediate.yaml
+    secrets:
+      SHINEPHONE_USERNAME: ${{ secrets.SHINEPHONE_USERNAME }}
+      SHINEPHONE_PASSWORD: ${{ secrets.SHINEPHONE_PASSWORD }}

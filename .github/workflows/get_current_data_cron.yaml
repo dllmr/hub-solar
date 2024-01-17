@@ -1,6 +1,9 @@
 name: get_current_data_cron
 
-on: [workflow_dispatch]
+on:
+  schedule:
+    # every 15 minutes
+    - cron: '*/15 * * * *'
 
 jobs:
   get_current_data_cron:

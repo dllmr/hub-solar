@@ -1,6 +1,7 @@
 import os
 import json
 import growattServer
+import helper_defs
 
 
 username = os.environ.get('SHINEPHONE_USERNAME', '')
@@ -17,5 +18,5 @@ if login_response['success']:
         'plantName': login_response['data'][0]['plantName'].strip()
     }
 
-    with open('../config/config.json', 'w') as config_file:
+    with open(helper_defs.CONFIG_FILE, 'w') as config_file:
         json.dump(config, config_file, indent=2)

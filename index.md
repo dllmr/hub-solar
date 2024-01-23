@@ -1,5 +1,5 @@
 # hub-solar
-Solar energy generation data for The Hub, Beeding:
+Solar energy generation data for The Hub, Beeding: -
 
 <div id="today">
 </div>

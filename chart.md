@@ -11,10 +11,10 @@ layout: dashboard
 <script>
     // Data for the chart
     var chartData = {
-        labels: ['00:00'],
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         datasets: [{
             label: 'Time/Date',
-            data: [10],
+            data: [12, 19, 3, 5, 2, 3],
             borderWidth: 1
         }]
     };

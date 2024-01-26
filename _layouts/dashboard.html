@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        html {
+            font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+            font-size: 1.3em;
+            max-width: 40rem;
+            padding: 2rem;
+            margin: auto;
+            line-height: 1.5rem;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; // Use full viewport height
+        }
+        #barChart {
+            display: block;
+            max-width: 100%; // Make sure the canvas is not exceeding the width of its container
+            margin: 0 auto; // Optional: Centers the canvas if the page width is larger than the canvas width
+        }
+    </style>  
+</head>
+<body>
+
+    {{ content }}
+
+</body>
+</html>

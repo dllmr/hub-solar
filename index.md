@@ -1,4 +1,7 @@
 # hub-solar
+
+layout: dashboard
+
 Solar energy generation data for The Hub, Beeding: -
 
 <div id="today">

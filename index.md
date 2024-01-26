@@ -1,4 +1,6 @@
+---
 layout: dashboard
+---
 
 # hub-solar
 

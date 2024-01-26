@@ -4,10 +4,10 @@ layout: dashboard
 
 # hub-solar
 
-<!-- Step 2: Create a canvas element where the chart will be rendered -->
+<div style="margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+
 <canvas id="barChart" width="100" height="100"></canvas>
 
-<!-- Step 3 & 4: Embed your data and initialize the chart -->
 <script>
     // Data for the chart
     var chartData = {
@@ -29,9 +29,6 @@ layout: dashboard
         return response.json(); // Parse the JSON in the response
     })
     .then(data => {
-        // Now 'data' contains the parsed JSON object
-        const value = data.plantData.currentEnergy; // Replace 'key' with the actual key from your JSON file
-
         // Select the HTML element by ID and set its content
         chartData.labels = Object.keys(data.data);
         chartData.datasets[0].data = Object.values(data.data);
@@ -56,11 +53,11 @@ layout: dashboard
                     left: 50
                 }
             },
-            indexAxis: 'x', // Sets the index axis to y, creating a horizontal bar chart
+            indexAxis: 'x',
             scales: {
                 x: {
                     grid: {
-                        display: false // Removes the gridlines on the y-axis
+                        display: false // Removes the gridlines on the x-axis
                     }
                 },
                 y: {
@@ -75,11 +72,10 @@ layout: dashboard
     };
 
     // Initialize the chart
-    const myHorizontalBarChart = new Chart(
+    const myBarChart = new Chart(
         document.getElementById('barChart'),
         config
     );
 </script>
-</body>
-</html>
 
+</div>

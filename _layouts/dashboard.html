@@ -12,24 +12,16 @@
             margin: auto;
             line-height: 1.5rem;
         }
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; // Use full viewport height
-        }
         #barChart {
             display: block;
-            max-width: 100%; // Make sure the canvas is not exceeding the width of its container
-            margin: 0 auto; // Optional: Centers the canvas if the page width is larger than the canvas width
+            max-width: 100%;
+            margin: 0 auto;
         }
     </style>  
 </head>
 <body>
-
-    {{ content }}
-
+    <main>
+        {{ content }}
+    </main>
 </body>
 </html>

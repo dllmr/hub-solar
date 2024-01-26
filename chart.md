@@ -11,10 +11,10 @@ layout: dashboard
 <script>
     // Data for the chart
     var chartData = {
-        labels: [],
+        labels: ['00:00'],
         datasets: [{
             label: 'Time/Date',
-            data: [],
+            data: [10],
             borderWidth: 1
         }]
     };
@@ -30,8 +30,8 @@ layout: dashboard
     })
     .then(data => {
         // Select the HTML element by ID and set its content
-        chartData.labels = "00:00";
-        chartData.datasets[0].data = [0];
+        //chartData.labels = "00:00";
+        //chartData.datasets[0].data = [0];
     })
     .catch(error => {
         // Handle any errors that occurred during the fetch

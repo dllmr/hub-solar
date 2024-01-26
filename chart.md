@@ -30,7 +30,7 @@ layout: dashboard
     })
     .then(data => {
         // Select the HTML element by ID and set its content
-        chartData.labels = Object.keys(data.data);
+        chartData.labels = "00:00";
         chartData.datasets[0].data = [0];
     })
     .catch(error => {

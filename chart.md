@@ -31,7 +31,7 @@ layout: dashboard
     .then(data => {
         // Select the HTML element by ID and set its content
         chartData.labels = Object.keys(data.data);
-        chartData.datasets[0].data = Object.values(data.data);
+        chartData.datasets[0].data = [0];
     })
     .catch(error => {
         // Handle any errors that occurred during the fetch

@@ -29,10 +29,11 @@
     "13:30": "1426.98",
     "14:00": "813.5",
     "14:30": "467.78",
-    "15:00": "457.45"
+    "15:00": "457.45",
+    "15:30": "457.17"
   },
   "plantData": {
-    "currentEnergy": "14.4 kWh",
+    "currentEnergy": "14.5 kWh",
     "plantId": "1877928",
     "plantMoneyText": "0.0 ",
     "plantName": "The Hub Beeding "
